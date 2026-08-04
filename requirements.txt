@@ -1,0 +1,11 @@
+transformers
+pandas
+tqdm
+numpy
+llama-cpp-python
+keybert
+text2num
+nltk
+sentence-transformers
+torch
+wikipedia-api
