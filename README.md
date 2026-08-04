@@ -5,22 +5,65 @@ A local RAG model for text data.
 ## Loading Wiki Pages 
 Text from Wikipedia pages can be added to a folder named `documents` by running the following script: 
 
-`python load_wiki_pages.py`
+```python load_wiki_pages.py```
 
 By default, this program will create a `.md` file for every current US Senator. 
 
 The format of the `.md` files is as follows: 
 
-`## Title 
-
-`# Section
-
+```
+Title.md:
+## Title 
+# Section
 paragraph 
-
 paragraph 
-
 ...
+# Section: Subsection
+...
+```
 
-# section
+## Loading Models
+
+This local RAG model depends on 4 local models which should be placed in a folder named `models`. Models 2-4 below can be downloaded using the script `./models/download_models.ipynb`
+
+1. Any LLM represented by a `.gguf` file. This can be downloaded from `LMStudio`. 
+2. The `bge-base-en-v1.5` folder
+3. The `multi-qa-mpnet-base-dot-v1` folder
+4. The `NER` folder
+
+## Querying RAG Model
+
+The documents can be searched for an answer to a query by setting the `query` variable and the `documents` variable in the file `local_rag.py` and running the Python script. Make sure to also define the `model_name` variable to the `.gguf` file name in your `./models` folder. 
+
+## Examples
+
+The following examples were generated using `Phi-4-mini-reasoning` as the backbone LLM.
+
+```
+Query: "Where is Tim Kaine a senator?"
+Documents: "Ted_Cruz", "Tim_Kaine", "Rand_Paul"
+
+Model output: 
+Tim Kaine is a senator from Virginia.
+Citation: ('Tim_Kaine', 'Political positions: Environment, energy, and climate change')
+```
+
+```
+Query: "Which university did Ted Cruz attend?"
+Documents: "Ted_Cruz", "Tim_Kaine", "Rand_Paul"
+
+Model output: 
+Ted Cruz attended Princeton University for his undergraduate studies and later Harvard LawSchool for his law degree.
+Citation: ('Ted_Cruz', 'Early life and family: Education')
+```
+
+```
+Query: "Who is a Senator for Kentucky?"
+Documents: "Ted_Cruz", "Tim_Kaine", "Rand_Paul"
+
+Model output: 
+Rand Paul is a Senator for Kentucky.
+Citation: ('Rand_Paul', 'Election to U.S. Senate: Primary campaign')
+```
 
 `
