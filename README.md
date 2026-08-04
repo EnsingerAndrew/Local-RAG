@@ -9,6 +9,11 @@ RAG Process:
 3) Filter out paragraphs that are not semantically aligned with the query
 4) Use an LLM to iterate over the remaining paragraphs. If the answer is found, return the answer. If not, ignore the paragraph.
 
+Notes:
+- This process will not return an answer that is not backed by piece of context. If all the paragraphs are iterated over and none contain the answer to the query, the model will return nothing instead of relying on training data to give its best guess. 
+- This process can only return the first found answer which is a tradeoff made for more speed. If there are 2 answers found in different contexts, only the first will be returned. This is done so that not every paragraph is iterated over if an answer is found in the first.
+- This process does not have multi-step reasoning but such a thing can be easily implemented in the future by calling this process for each sub-question in a larger question. 
+
 ## Loading Wiki Pages 
 Text from Wikipedia pages can be added to a folder named `documents` by running the following script: 
 
