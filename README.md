@@ -49,7 +49,7 @@ The documents can be searched for an answer to a query by setting the `query` va
 
 ## Examples
 
-The following examples were generated using `Phi-4-mini-reasoning` as the backbone LLM.
+The following examples were generated using `qwen3-vl-4b` as the backbone LLM. The process can tolerate reasoning models but they are much slower and do not exhibit noticeable improvements in performance because the task is very simple.
 
 ```
 Query: "Where is Tim Kaine a senator?"
