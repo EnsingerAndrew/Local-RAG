@@ -1,6 +1,8 @@
 # Local-RAG
 A local RAG model for text data. 
 
+<img width="668" height="476" alt="RAG_Diagram" src="https://github.com/user-attachments/assets/a291b09e-df19-4c93-9eeb-9d627f217f48" />
+
 
 ## Loading Wiki Pages 
 Text from Wikipedia pages can be added to a folder named `documents` by running the following script: 
