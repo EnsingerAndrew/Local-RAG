@@ -3,6 +3,11 @@ A local RAG model for text data.
 
 <img width="668" height="476" alt="RAG_Diagram" src="https://github.com/user-attachments/assets/a291b09e-df19-4c93-9eeb-9d627f217f48" />
 
+RAG Process: 
+1) Collect list of paragraphs from requested documents
+2) Filter out paragraphs that do not include enough keywords from the query
+3) Filter out paragraphs that are not semantically aligned with the query
+4) Use an LLM to iterate over the remaining paragraphs. If the answer is found, return the answer. If not, ignore the paragraph.
 
 ## Loading Wiki Pages 
 Text from Wikipedia pages can be added to a folder named `documents` by running the following script: 
